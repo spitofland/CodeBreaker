@@ -1,0 +1,90 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Code Breaker!</title>
+	<meta name="description" content="Use the hints to guess the code.">
+	<meta name="author" content="Kyle R. Atkinson">
+
+	<meta property="og:title" content="Code Breaker!">
+	<meta property="og:type" content="website">
+	<meta property="og:description" content="Use the hints to guess the code.">
+	<!-- Add these properties when I have the images
+	<meta property="og:image" content="image.png">
+
+	<link rel="icon" href="/favicon.ico">
+	<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	-->
+
+	<link rel="stylesheet" href="CodeBreaker.css">
+	<script src="5LetterDictionary.js"></script>
+	<script src="CodeBreaker.js"></script>
+</head>
+
+<body onload="setupBoard()">
+	<div id="menu">
+		<h1>Code Breaker!</h1>
+	</div>
+	<div id="popup">
+		<h2>You guessed <span id="secret-word"></span>!</h2>
+		<p>It took you <span id="number-of-guesses"></span> guesses to find the word.</p>
+		<p>You used <span id="number-of-used-letters"></span> unique letters in your guesses.</p>
+		<div id="play-again" onclick="setupBoard()">Play Again</div>
+	</div>
+	<div id="guess-list">
+		<div class="guess-row">
+			<div class="guess-number"></div>
+			<div class="letter-square">H</div>
+			<div class="letter-square">E</div>
+			<div class="letter-square">L</div>
+			<div class="letter-square">L</div>
+			<div class="letter-square">O</div>
+		</div>
+	</div>
+	<div id="on-screen-keyboard">
+		<div class="keyboard-row">
+			<div id="Q-key" class="keyboard-key letter-square">Q</div>
+			<div id="W-key" class="keyboard-key letter-square">W</div>
+			<div id="E-key" class="keyboard-key letter-square">E</div>
+			<div id="R-key" class="keyboard-key letter-square">R</div>
+			<div id="T-key" class="keyboard-key letter-square">T</div>
+			<div id="Y-key" class="keyboard-key letter-square">Y</div>
+			<div id="U-key" class="keyboard-key letter-square">U</div>
+			<div id="I-key" class="keyboard-key letter-square">I</div>
+			<div id="O-key" class="keyboard-key letter-square">O</div>
+			<div id="P-key" class="keyboard-key letter-square">P</div>
+		</div>
+		<div class="keyboard-row">
+			<div class="empty-space"></div>
+			<div id="A-key" class="keyboard-key letter-square">A</div>
+			<div id="S-key" class="keyboard-key letter-square">S</div>
+			<div id="D-key" class="keyboard-key letter-square">D</div>
+			<div id="F-key" class="keyboard-key letter-square">F</div>
+			<div id="G-key" class="keyboard-key letter-square">G</div>
+			<div id="H-key" class="keyboard-key letter-square">H</div>
+			<div id="J-key" class="keyboard-key letter-square">J</div>
+			<div id="K-key" class="keyboard-key letter-square">K</div>
+			<div id="L-key" class="keyboard-key letter-square">L</div>
+		</div>
+		<div class="keyboard-row">
+			<div class="empty-space"></div>
+			<div id="Z-key" class="keyboard-key letter-square">Z</div>
+			<div id="X-key" class="keyboard-key letter-square">X</div>
+			<div id="C-key" class="keyboard-key letter-square">C</div>
+			<div id="V-key" class="keyboard-key letter-square">V</div>
+			<div id="B-key" class="keyboard-key letter-square">B</div>
+			<div id="N-key" class="keyboard-key letter-square">N</div>
+			<div id="M-key" class="keyboard-key letter-square">M</div>
+			<div id="Back-key" class="keyboard-key letter-square">&lArr;<br/><span>Del</span></div>
+		</div>
+		<div class="keyboard-row">
+			<div class="empty-space"></div>
+			<div id="Check-key" class="keyboard-key letter-square">Check</div>
+		</div>
+	</div>
+</body>
+</html>

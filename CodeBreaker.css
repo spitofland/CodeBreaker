@@ -1,0 +1,199 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	font-size: 1vw;
+	padding: 0px;
+}
+
+body {
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	margin: auto;
+	display: grid;
+	grid-template-rows: 5rem 1fr 54.5rem;
+	grid-template-areas: 'menuArea' 'guessArea' 'keyboardArea';
+}
+
+#popup {
+	display: none;
+	position: fixed;
+	width: 90rem;
+	height: 37rem;
+	border: 1rem solid darkgreen;
+	background-color: lightblue;
+	color: black;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	font-size: 3rem;
+	line-height: 1.1;
+}
+
+#popup h2 {
+	font-size: 7rem;
+	color: darkgreen;
+	text-decoration: underline;
+	margin: 1.5rem auto;
+}
+
+#popup span {
+	font-weight: bold;
+	color: black;
+	text-decoration: underline;
+	font-size: 1.25em;
+}
+
+#play-again {
+	border: 1rem solid brown;
+	color: brown;
+	background-color: yellow;
+	padding: 0.5rem;
+	width: 50%;
+	margin: 0px auto;
+}
+
+#menu {
+	grid-area: menuArea;
+	background-color: lightblue;
+}
+
+#guess-list {
+	grid-area: guessArea;
+	background-color: lightgray;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#on-screen-keyboard {
+	grid-area: keyboardArea;
+	background-color: lightgray;
+	overflow-x: hidden;
+}
+
+.keyboard-row .letter-square {
+	background-color: white;
+}
+
+.letter-square {
+	font-size: 5rem;
+	font-weight: bold;
+	height: 1em;
+	line-height: 1;
+	float: left;
+	width: 100%;
+	padding: 1.3rem 0rem;
+	border: 0.5rem solid black;
+	border-radius: 1rem;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.guess-row .letter-square {
+	font-size: 5rem;
+	padding: 1.3rem 0rem;
+}
+
+.guess-number {
+	font-size: 3rem;
+	text-align: right;
+	margin-top: 2rem;
+}
+
+#on-screen-keyboard .keyboard-row .letter-square.correct-letter, .correct-letter {
+	border-color: darkgreen;
+	background-color: lightgreen;
+	color: darkgreen;
+}
+
+.keyboard-row .letter-square.wrong-location, .wrong-location {
+	border-color: #990000;
+	background-color: yellow;
+	color: #990000;
+}
+
+.letter-square.wrong-letter, .wrong-letter {
+	border-color: black;
+	background-color: gray;
+	color: black;
+}
+
+#Check-key.valid-word {
+	background-color: lightblue;
+	border-color: darkblue;
+	color: darkblue;
+}
+
+#Check-key.not-valid-word {
+	background-color: lightgray;
+	border-color: darkred;
+	color: darkred;
+}
+
+#Check-key.too-short {
+	background-color: lightgray;
+}
+
+#Back-key {
+	height: 5rem;
+	line-height: 0.5;
+}
+
+#Back-key span {
+	font-size:2rem;
+}
+
+.guess-row, .keyboard-row {
+	display: grid;
+	grid-column-gap: 1.5rem;
+	width: 100%;
+	clear: both;
+	margin: 0.25rem;
+}
+
+.keyboard-row:nth-child(1) {grid-template-columns: repeat(10, 8.5rem);}
+.keyboard-row:nth-child(2) {grid-template-columns: 3.5rem repeat(9, 8.5rem);}
+.keyboard-row:nth-child(3) {grid-template-columns: 8.5rem repeat(8, 8.5rem);}
+.keyboard-row:nth-child(4) {grid-template-columns: 28.5rem 38.5rem;}
+
+/* Portrait */
+@media only screen and (max-width: 100vh) {
+	.guess-row {
+		grid-template-columns: 1fr repeat(5, 12rem) 1fr;
+		grid-column-gap: 2.25rem;
+		margin-top: 1rem;
+	}
+
+	.guess-row .letter-square {
+		font-size: 8rem;
+		padding: 2rem 0rem;
+		border-width: 1rem;
+		border-radius: 2rem;
+	}
+
+	.guess-number {
+		font-size: 5rem;
+		text-align: right;
+		margin-top: 3rem;
+	}
+
+	#on-screen-keyboard .keyboard-row .letter-square {
+		padding: 3.7rem 0px;
+	}
+}
+
+/* Landscape */
+@media only screen and (min-width: 100vh) {
+	html {
+		font-size: 0.6vw;
+	}
+
+	body {
+		grid-template-rows: 1fr 35.5rem;
+		grid-template-columns: 1fr 100rem;
+		grid-template-areas: 'guessArea menuArea' 'guessArea keyboardArea';
+	}
+
+	.guess-row {
+		grid-template-columns: 1fr repeat(5, 8rem) 1fr;
+	}
+}
